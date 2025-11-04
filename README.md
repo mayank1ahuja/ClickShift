@@ -57,3 +57,31 @@ Primary objectives:
 4. **Visualize Insights**: Build an interactive Tableau dashboard to present results clearly to business stakeholders.  
 5. **Recommend Actionable Budget Shifts**: Translate findings into marketing recommendations for future campaigns.
 
+
+# `Methodology`
+
+The project follows an end-to-end analytics workflow, transforming raw CSV files into actionable business intelligence:
+
+1. **Data Ingestion and Structuring**  
+   - Data is first loaded into a PostgreSQL database.  
+   - The schema (`schema.sql`) defines clean, typed tables from the raw campaign data, enforcing numeric consistency and date formatting.  
+
+2. **Feature Engineering and Benchmarking**  
+   - Using SQL scripts (`benchmarks.sql`), key performance baselines are computed by segment, channel, and campaign type.  
+   - Metrics such as CTR, conversion rate, ROI, and acquisition cost are aggregated to identify high-performing groups.  
+
+3. **A/B Variant Aggregation**  
+   - The script `ab_counts.sql` consolidates campaign outcomes by variant (A v/s B) to compute conversion rates, impressions, and CTRs.  
+   - This step ensures each variant group has sufficient sample size for fair comparison.  
+
+4. **Hypothesis Testing and Statistical Validation**  
+   - Statistical comparisons between variants are performed in `ab_test.ipynb` using.  
+   - Results quantify whether observed performance gaps are significant or due to random variation.  
+
+5. **Exploratory Data Analysis (EDA)**  
+   - Conducted in `insights.ipynb` using Python.  
+   - Derived metrics such as conversion lift and ROI differentials are visualized for exploratory understanding.  
+
+6. **Dashboard Development**  
+   - The final Tableau workbook, `Campaign Performance Overview.twbx`, integrates SQL outputs and statistical results.  
+   - The dashboard offers drill-downs by channel, segment, and campaign variant for interactive storytelling.
