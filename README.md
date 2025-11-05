@@ -36,7 +36,7 @@ In digital marketing, campaign budgets are often allocated across multiple ad or
 ClickShift addresses this by implementing a reproducible, data-driven A/B testing framework. The goal is to help SaaS teams **quantify campaign effectiveness**, **identify winning variants**, and **reallocate spend** toward the most efficient channels or creatives.
 
 # `Data Source`
-* **Source**: [Github](https://github.com/Leafl19)
+* **Source**: [GitHub](https://github.com/Leafl19)
 * [**Dataset**](https://github.com/Leafl19/Marketing-Campaign-Performance-Audience-Analysis)
 * The dataset contains detailed records of marketing campaigns, including information on campaign type, target segment, channel used, impressions, clicks, conversion rate, acquisition cost, and ROI. It serves as the foundation for performance benchmarking and A/B testing in ClickShift, enabling comparison of campaign effectiveness across different marketing channels and audience segments.
 
