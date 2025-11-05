@@ -9,15 +9,14 @@ This reproducible analytics project was developed to evaluate and optimize marke
 - [Project Overview](#project-overview)
 - [Dashboard Preview](#dashboard-preview)
 - [Background and Motivation](#background-and-motivation)
-- [Understanding A/B Testing and Its Role in This Project](#understanding-ab-testing-and-its-role-in-this-project)
 - [Data Source](#data-source)
+- [A/B Testing](#ab-testing)
 - [Objectives](#objectives)
 - [Methodology](#methodology)
-- [Repository Structure](#repository-structure)
-- [Visual Highlights](#visual-highlights)
 - [Key Findings](#key-findings)
 - [Business Interpretation](#business-interpretation)
-- [Dashboard and Deliverables](#dashboard-and-deliverables)
+- [Visual Highlights](#visual-highlights)
+- [Deliverables](#deliverables)
 - [Impact and Skills Demonstrated](#impact-and-skills-demonstrated)
 - [Author](#author)
 
@@ -28,19 +27,20 @@ Marketing teams often run multiple campaign variants — different creatives, me
 It is a data analysis case study designed to measure and visualize the impact of A/B campaign experiments across key performance indicators like **conversion rate**, **click-through rate (CTR)**, and **ROI**.  
 By combining SQL-based aggregation, Python statistical testing, and Tableau dashboards, the project transforms raw campaign data into decision-grade insights that marketing strategists can act upon.
 
-
 # `Dashboard Preview`
 ![Campaign Overview Dashboard](https://github.com/mayank1ahuja/ClickShift/blob/8a3324678f085034fc4f9c0f148882f38d879c0a/tableau/assets/Campaign%20Performance%20Overview.png)  
 *Interactive Tableau dashboard highlighting conversion lift, ROI differentials, and audience response across A/B variants.*
-
 
 # `Background and Motivation`
 In digital marketing, campaign budgets are often allocated across multiple ad or email variants without a robust evidence base. Small design changes can significantly affect engagement and conversion outcomes, yet these differences are rarely quantified statistically.  
 ClickShift addresses this by implementing a reproducible, data-driven A/B testing framework. The goal is to help SaaS teams **quantify campaign effectiveness**, **identify winning variants**, and **reallocate spend** toward the most efficient channels or creatives.
 
+## Data Source
+* **Source**: [Github](https://github.com/Leafl19)
+* [**Dataset**](https://github.com/Leafl19/Marketing-Campaign-Performance-Audience-Analysis)
+* The dataset contains detailed records of marketing campaigns, including information on campaign type, target segment, channel used, impressions, clicks, conversion rate, acquisition cost, and ROI. It serves as the foundation for performance benchmarking and A/B testing in ClickShift, enabling comparison of campaign effectiveness across different marketing channels and audience segments.
 
 # `A/B Testing`
-
 **A/B testing** (also known as split testing) is a controlled experimental technique used to compare two versions of a campaign — Version A (control) and Version B (variant).  
 By dividing the audience randomly and exposing each group to a different version, analysts can measure which performs better on key metrics such as **conversion rate**, **CTR**, or **ROI**.  
 
@@ -62,15 +62,10 @@ Primary objectives:
 The project follows an end-to-end analytics pipeline, transforming raw campaign records into actionable business intelligence through a series of structured analytical stages.
 
 1. **Data Ingestion and Structuring:** Raw campaign data from CSV files was first ingested into a PostgreSQL database. The process was governed by a defined schema (`schema.sql`), which ensured clean, typed tables with consistent numeric formats and standardized date fields. This database-first approach established a reliable foundation for downstream querying and aggregations.
-
 2. **Feature Engineering and Benchmarking:** Using SQL scripts in `benchmarks.sql`, key marketing baselines were computed across segments, channels, and campaign types. Metrics such as click-through rate (CTR), conversion rate, return on investment (ROI), and acquisition cost were aggregated to surface top-performing categories and benchmark campaign efficiency.
-
 3. **A/B Variant Aggregation:** The script `ab_counts.sql` consolidated campaign results by variant (A vs. B), calculating conversion counts, impressions, and CTRs at the variant level. This ensured that each experimental group met sample-size sufficiency and statistical comparability, providing a clean basis for A/B testing.
-
 4. **Hypothesis Testing and Statistical Validation:** Statistical evaluation of variant performance was performed in `ab_test.ipynb` using a two-proportion z-test. The test quantified whether observed differences in conversion rates were statistically significant or due to random variation, producing interpretable outputs including absolute lift, confidence intervals, and p-values.
-
 5. **Exploratory Data Analysis (EDA):** Exploratory analysis was conducted in `insights.ipynb` using Python. Derived KPIs such as conversion lift and ROI differentials were visualized through interactive charts and summary tables, enabling intuitive pattern discovery and hypothesis refinement.
-
 6. **Dashboard Development:** The analytical findings were consolidated into an interactive Tableau dashboard (`Campaign Performance Overview.twbx`). This final deliverable integrates SQL outputs, computed KPIs, and A/B test results, offering dynamic drill-downs by marketing channel, customer segment, and campaign variant. The dashboard serves as a decision-support interface, translating statistical evidence into accessible, business-facing insights.
 
 # `Key Findings`
@@ -88,10 +83,21 @@ The project follows an end-to-end analytics pipeline, transforming raw campaign 
 3. **Benchmark Gaps Across Segments** – Younger audience segments showed stronger responses to Variant B, indicating message resonance effects.  
 4. **Business Recommendation** – Reallocate a greater share of future marketing spend toward the higher-performing variant and its associated audience segments.
 
+![](https://github.com/mayank1ahuja/ClickShift/blob/429ee4a6000506075180949deba730dddbffedcf/notebooks/assets/AB%20Test.png)
+
 # `Business Interpretation`
 
 The uplift observed in Variant B’s conversion and ROI demonstrates the tangible impact of small creative and targeting changes. From a business perspective, this translates to improved **marketing efficiency** — achieving higher conversions at similar or lower spend. If scaled across future campaigns, a 13% conversion lift could correspond to a significant gain in customer acquisition volume and revenue without additional budget. This validates the role of **data-driven experimentation** as a cornerstone of marketing decision-making.
 
+# `Visual Highlights`
+
+### Plotly Visualization – Campaigns by Market Segment and Type
+*(From `insights.ipynb`)*  
+![](https://github.com/mayank1ahuja/ClickShift/blob/429ee4a6000506075180949deba730dddbffedcf/notebooks/assets/Campaigns%20by%20Market%20Segment%20and%20Type.png)
+
+### Tableau Visualization – ROI Heatmap by Segment and Campaign Type
+*(From `Campaign Performance Overview.twbx`)*  
+![](https://github.com/mayank1ahuja/ClickShift/blob/429ee4a6000506075180949deba730dddbffedcf/tableau/assets/ROI%20Heatmap%20by%20Segment%20and%20Campaign%20Type.png)
 
 # `Deliverables`
 The repository includes all code, data, and visuals required for full reproducibility.  
