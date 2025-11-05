@@ -1,6 +1,6 @@
 ![Project Header](https://github.com/mayank1ahuja/ClickShift/blob/14e0834f90c4d02e6c2d1453a2257e754742a6dd/images/project%20header.png)
 
-# ClickShift: Campaign Performance Analysis with A/B Testing
+<h2 align = "center"> ClickShift: Campaign Performance Analysis with A/B Testing </h2>
 
 # `TL;DR`
 This reproducible analytics project was developed to evaluate and optimize marketing campaign performance for a SaaS business through A/B testing. Deliverables include reproducible SQL scripts, Jupyter notebooks for statistical testing, and an interactive Tableau dashboard for comparative insights between campaign variants.
@@ -35,7 +35,7 @@ By combining SQL-based aggregation, Python statistical testing, and Tableau dash
 In digital marketing, campaign budgets are often allocated across multiple ad or email variants without a robust evidence base. Small design changes can significantly affect engagement and conversion outcomes, yet these differences are rarely quantified statistically.  
 ClickShift addresses this by implementing a reproducible, data-driven A/B testing framework. The goal is to help SaaS teams **quantify campaign effectiveness**, **identify winning variants**, and **reallocate spend** toward the most efficient channels or creatives.
 
-## Data Source
+# `Data Source`
 * **Source**: [Github](https://github.com/Leafl19)
 * [**Dataset**](https://github.com/Leafl19/Marketing-Campaign-Performance-Audience-Analysis)
 * The dataset contains detailed records of marketing campaigns, including information on campaign type, target segment, channel used, impressions, clicks, conversion rate, acquisition cost, and ROI. It serves as the foundation for performance benchmarking and A/B testing in ClickShift, enabling comparison of campaign effectiveness across different marketing channels and audience segments.
@@ -115,10 +115,9 @@ This project demonstrates how structured experimentation and data analysis can g
 
 * **Domain Knowledge**: Framing A/B testing as a campaign optimization and decision-support problem.  
 * **Technical Skills**: SQL-based data transformation and aggregation; Python-based statistical testing; dashboard design using Tableau.  
-* **Analytical Techniques**: A/B testing design, t-test validation, time-series trend analysis, and KPI benchmarking.  
 * **Business Impact**: Data-driven recommendations for marketing spend reallocation, grounded in statistical evidence.  
 
-The ClickShift pipeline is modular and reusable — it can be extended to test additional variants, campaigns, or datasets for continuous marketing optimization.
+The ClickShift pipeline is modular and can be extended to test additional variants, campaigns, or datasets for continuous marketing optimization.
 
 # `Author`
 ### **Mayank Ahuja**  
