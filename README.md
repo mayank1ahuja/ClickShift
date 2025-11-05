@@ -1,6 +1,6 @@
 ![Project Header](https://github.com/mayank1ahuja/ClickShift/blob/14e0834f90c4d02e6c2d1453a2257e754742a6dd/images/project%20header.png)
 
-<h2 align = "center"> ClickShift: Campaign Performance Analysis with A/B Testing </h2>
+<h1 align = "center"> ClickShift: Campaign Performance Analysis with A/B Testing </h1>
 
 # `TL;DR`
 This reproducible analytics project was developed to evaluate and optimize marketing campaign performance for a SaaS business through A/B testing. Deliverables include reproducible SQL scripts, Jupyter notebooks for statistical testing, and an interactive Tableau dashboard for comparative insights between campaign variants.
