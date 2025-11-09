@@ -51,7 +51,7 @@ This approach ensures that marketing insights are **quantifiable, reproducible, 
 
 # `Objectives`
 Primary objectives:
-1. **Identify Winning Variants**: Determine which campaign type (A or B) yields a higher conversion rate and ROI.  
+1. **Identify Winning Variants**: Determine which campaign type (A or B) yields a higher conversion rate.  
 2. **Establish Performance Benchmarks**: Compute baseline CTR and ROI across market segments and channels.  
 3. **Quantify Statistical Significance**: Validate whether performance differences between variants are statistically significant.  
 4. **Visualize Insights**: Build an interactive Tableau dashboard to present results clearly to business stakeholders.  
@@ -63,31 +63,28 @@ The project follows an end-to-end analytics pipeline, transforming raw campaign 
 
 1. **Data Ingestion and Structuring:** Raw campaign data from CSV files was first ingested into a PostgreSQL database. The process was governed by a defined schema (`schema.sql`), which ensured clean, typed tables with consistent numeric formats and standardized date fields. This database-first approach established a reliable foundation for downstream querying and aggregations.
 2. **Feature Engineering and Benchmarking:** Using SQL scripts in `benchmarks.sql`, key marketing baselines were computed across segments, channels, and campaign types. Metrics such as click-through rate (CTR), conversion rate, return on investment (ROI), and acquisition cost were aggregated to surface top-performing categories and benchmark campaign efficiency.
-3. **A/B Variant Aggregation:** The script `ab_counts.sql` consolidated campaign results by variant (A vs. B), calculating conversion counts, impressions, and CTRs at the variant level. This ensured that each experimental group met sample-size sufficiency and statistical comparability, providing a clean basis for A/B testing.
+3. **A/B Variant Aggregation:** The script `ab_counts.sql` consolidated campaign results by variant (A vs. B), calculating conversion counts at the variant level. This ensured that each experimental group met sample-size sufficiency and statistical comparability, providing a clean basis for A/B testing.
 4. **Hypothesis Testing and Statistical Validation:** Statistical evaluation of variant performance was performed in `ab_test.ipynb` using a two-proportion z-test. The test quantified whether observed differences in conversion rates were statistically significant or due to random variation, producing interpretable outputs including absolute lift, confidence intervals, and p-values.
 5. **Exploratory Data Analysis (EDA):** Exploratory analysis was conducted in `insights.ipynb` using Python. Derived KPIs such as conversion lift and ROI differentials were visualized through interactive charts and summary tables, enabling intuitive pattern discovery and hypothesis refinement.
 6. **Dashboard Development:** The analytical findings were consolidated into an interactive Tableau dashboard (`Campaign Performance Overview.twbx`). This final deliverable integrates SQL outputs, computed KPIs, and A/B test results, offering dynamic drill-downs by marketing channel, customer segment, and campaign variant. The dashboard serves as a decision-support interface, translating statistical evidence into accessible, business-facing insights.
 
 # `Key Findings`
 
-| Metric | Variant A | Variant B | Lift (%) |
+| Metric | Control(Influencer) | Treatment(Search) | Lift (%) |
 |---------|------------|------------|----------|
-| Conversion Rate | 3.8% | 4.3% | +13.2% |
-| Click-Through Rate | 2.1% | 2.4% | +14.3% |
-| ROI | 1.28 | 1.46 | +14.1% |
+| Conversion Rate | 0.072% | 0.071% | -0.0006% |
 
 *Statistical significance validated at p < 0.05.*
 
-1. **Variant B Outperforms A in Conversion and ROI** – Statistical testing confirmed a significant uplift (~12–15%) in conversion rate for Variant B with *p < 0.05*.  
-2. **Channel Efficiency Insights** – Email and search-based campaigns delivered higher CTR than social channels, suggesting channel-specific optimization opportunities.  
-3. **Benchmark Gaps Across Segments** – Younger audience segments showed stronger responses to Variant B, indicating message resonance effects.  
-4. **Business Recommendation** – Reallocate a greater share of future marketing spend toward the higher-performing variant and its associated audience segments.
+The experiment revealed a **slight decline in conversion performance** for Variant B (Search) compared to the control (Influencer). Although the difference achieved **statistical significance (p = 0.02)**, the **magnitude of change was minimal**, indicating limited practical impact. The results suggest that the tested creative or targeting adjustments **did not enhance conversion efficiency** and may have introduced minor friction in user engagement. This outcome emphasizes the need for **precision in campaign optimization**, where even statistically valid shifts must be weighed against their real-world business relevance. Further segmentation or contextual testing is recommended to determine whether the observed pattern persists across specific audience subsets.
 
 ![](https://github.com/mayank1ahuja/ClickShift/blob/429ee4a6000506075180949deba730dddbffedcf/notebooks/assets/AB%20Test.png)
 
+*Thus, at present, there are no winning variants identified in these findings.*
+
 # `Business Interpretation`
 
-The uplift observed in Variant B’s conversion and ROI demonstrates the tangible impact of small creative and targeting changes. From a business perspective, this translates to improved **marketing efficiency** — achieving higher conversions at similar or lower spend. If scaled across future campaigns, a 13% conversion lift could correspond to a significant gain in customer acquisition volume and revenue without additional budget. This validates the role of **data-driven experimentation** as a cornerstone of marketing decision-making.
+The observed decline in Variant B’s conversion rate highlights the **sensitivity of campaign performance** to even small creative and targeting adjustments. From a business perspective, this underscores the importance of **rigorous testing and validation** before scaling new variants. Although the difference is statistically significant, the magnitude of change is negligible and **does not translate into a meaningful efficiency gain**. Scaling such variations without additional optimization could risk diluting overall marketing performance. This reinforces the value of **data-driven experimentation** not only to identify winning strategies but also to prevent **unproductive campaign shifts**.
 
 # `Visual Highlights`
 
